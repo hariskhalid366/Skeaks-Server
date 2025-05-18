@@ -1,4 +1,4 @@
-const Product = require("../modal/product");
+const Product = require("../modals/product");
 
 const getProductById = async (id) => {
   return Product.findById(id);
@@ -32,6 +32,32 @@ module.exports = {
       }
 
       res.status(200).json({ status: true, product });
+    } catch (error) {
+      console.error(error);
+      return next(error);
+    }
+  },
+
+  searchProductsByName: async (req, res, next) => {
+    try {
+      const { name } = req.query;
+
+      if (!name || name.trim() === "") {
+        return res
+          .status(400)
+          .json({ status: false, message: "Search query cannot be empty" });
+      }
+
+      const regex = new RegExp(name, "i"); // Case-insensitive search
+      const products = await Product.find({ name: regex });
+
+      if (!products.length) {
+        return res
+          .status(404)
+          .json({ status: false, message: "No matching products found" });
+      }
+
+      res.status(200).json({ status: true, products });
     } catch (error) {
       console.error(error);
       return next(error);

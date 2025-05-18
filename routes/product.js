@@ -1,7 +1,8 @@
 const router = require("express").Router();
-const productController = require("../controller/productController");
+const productController = require("../controllers/productController");
 
 router.get("/data", productController.getAllProducts);
-router.get("/:productId", productController.getProductById); // Updated route
+router.get("/search", productController.searchProductsByName);
+router.get("/:productId", productController.getProductById);
 
 module.exports = router;

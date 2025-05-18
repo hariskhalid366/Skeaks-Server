@@ -1,4 +1,4 @@
-const User = require("../modal/users");
+const User = require("../modals/users");
 
 module.exports = {
   deleteUser: async (req, res, next) => {

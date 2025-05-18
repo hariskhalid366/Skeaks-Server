@@ -1,0 +1,162 @@
+[
+  {
+    "type": "subscribe",
+    "platform": "youtube",
+    "target": "https://www.youtube.com/@Nike",
+    "description": "Subscribe to Nike's YouTube channel",
+    "points": 50,
+    "status": false
+  },
+  {
+    "type": "like_video",
+    "platform": "youtube",
+    "target": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "description": "Like this YouTube video",
+    "points": 20,
+    "status": false
+  },
+  {
+    "type": "follow",
+    "platform": "instagram",
+    "target": "https://www.instagram.com/adidas/",
+    "description": "Follow Adidas on Instagram",
+    "points": 30,
+    "status": false
+  },
+  {
+    "type": "like_post",
+    "platform": "instagram",
+    "target": "https://www.instagram.com/p/CZxyz12345/",
+    "description": "Like this Instagram post",
+    "points": 15,
+    "status": false
+  },
+  {
+    "type": "comment",
+    "platform": "instagram",
+    "target": "https://www.instagram.com/p/CZxyz12345/",
+    "description": "Comment on this Instagram post",
+    "points": 25,
+    "status": false
+  },
+  {
+    "type": "follow",
+    "platform": "facebook",
+    "target": "https://www.facebook.com/Nike",
+    "description": "Follow Nike on Facebook",
+    "points": 30,
+    "status": false
+  },
+  {
+    "type": "share",
+    "platform": "facebook",
+    "target": "https://www.facebook.com/Nike/posts/10159538320260312",
+    "description": "Share this Facebook post",
+    "points": 40,
+    "status": false
+  },
+  {
+    "type": "follow",
+    "platform": "twitter",
+    "target": "https://twitter.com/Nike",
+    "description": "Follow Nike on Twitter (X)",
+    "points": 30,
+    "status": false
+  },
+  {
+    "type": "retweet",
+    "platform": "twitter",
+    "target": "https://twitter.com/Nike/status/1720012345678901234",
+    "description": "Retweet this post from Nike",
+    "points": 40,
+    "status": false
+  },
+  {
+    "type": "like_tweet",
+    "platform": "twitter",
+    "target": "https://twitter.com/Nike/status/1720012345678901234",
+    "description": "Like this tweet",
+    "points": 20,
+    "status": false
+  },
+  {
+    "type": "follow",
+    "platform": "tiktok",
+    "target": "https://www.tiktok.com/@nike",
+    "description": "Follow Nike on TikTok",
+    "points": 30,
+    "status": false
+  },
+  {
+    "type": "like_video",
+    "platform": "tiktok",
+    "target": "https://www.tiktok.com/@nike/video/7234567890123456789",
+    "description": "Like this TikTok video",
+    "points": 20,
+    "status": false
+  },
+  {
+    "type": "comment",
+    "platform": "tiktok",
+    "target": "https://www.tiktok.com/@nike/video/7234567890123456789",
+    "description": "Comment on this TikTok video",
+    "points": 25,
+    "status": false
+  },
+  {
+    "type": "follow",
+    "platform": "linkedin",
+    "target": "https://www.linkedin.com/company/nike/",
+    "description": "Follow Nike on LinkedIn",
+    "points": 30,
+    "status": false
+  },
+  {
+    "type": "like_post",
+    "platform": "linkedin",
+    "target": "https://www.linkedin.com/feed/update/urn:li:activity:7021234567891234567",
+    "description": "Like this LinkedIn post",
+    "points": 20,
+    "status": false
+  },
+  {
+    "type": "comment",
+    "platform": "linkedin",
+    "target": "https://www.linkedin.com/feed/update/urn:li:activity:7021234567891234567",
+    "description": "Comment on this LinkedIn post",
+    "points": 25,
+    "status": false
+  },
+  {
+    "type": "join_group",
+    "platform": "facebook",
+    "target": "https://www.facebook.com/groups/nikefans/",
+    "description": "Join the Nike Fans Facebook group",
+    "points": 35,
+    "status": false
+  },
+  {
+    "type": "tag_friend",
+    "platform": "instagram",
+    "target": "https://www.instagram.com/p/CZxyz12345/",
+    "description": "Tag a friend in this Instagram post",
+    "points": 25,
+    "status": false
+  },
+  {
+    "type": "repost",
+    "platform": "instagram",
+    "target": "https://www.instagram.com/p/CZxyz12345/",
+    "description": "Repost this story to your Instagram story",
+    "points": 30,
+    "status": false
+  },
+  {
+    "type": "use_hashtag",
+    "platform": "twitter",
+    "target": "#NikeChallenge",
+    "description": "Tweet with the hashtag #NikeChallenge",
+    "points": 35,
+    "status": false
+  }
+]
