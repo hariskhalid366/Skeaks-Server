@@ -1,17 +1,21 @@
 const task = require("../modals/task");
+const { paginate } = require('../utils/pagination');
 
 module.exports = {
   getUserTasks: async (req, res, next) => {
     try {
-      const tasks = await task.find();
+      const page = parseInt(req.query.page, 10) || 1;
+      const limit = parseInt(req.query.limit, 10) || 10;
+      const query = task.find();
+      const paginatedResults = await paginate(query, page, limit);
 
-      if (!tasks || tasks.length === 0) {
+      if (!paginatedResults.data || paginatedResults.data.length === 0) {
         return res
           .status(404)
           .json({ status: false, message: "No tasks found" });
       }
 
-      res.status(200).json({ status: true, tasks });
+      res.status(200).json({ status: true, ...paginatedResults });
     } catch (error) {
       console.error("Failed to fetch tasks:", error);
       return next(error);
