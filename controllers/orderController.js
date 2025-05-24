@@ -1,5 +1,6 @@
 const Orders = require("../modals/order");
 const sendEmail = require("../utils/sendEmail.js");
+const { paginate } = require('../utils/pagination');
 
 module.exports = {
   createOrder: async (req, res, next) => {
@@ -59,6 +60,8 @@ module.exports = {
   findOrdersByEmail: async (req, res, next) => {
     try {
       const { email } = req.query;
+      const page = parseInt(req.query.page, 10) || 1;
+      const limit = parseInt(req.query.limit, 10) || 10;
 
       if (!email) {
         return res.status(400).json({
@@ -67,16 +70,17 @@ module.exports = {
         });
       }
 
-      const orders = await Orders.find({ email });
+      const query = Orders.find({ email });
+      const paginatedResults = await paginate(query, page, limit);
 
-      if (!orders || orders.length === 0) {
+      if (!paginatedResults.data || paginatedResults.data.length === 0) {
         return res.status(404).json({
           status: false,
           message: "No orders found for this email",
         });
       }
 
-      res.status(200).json({ status: true, orders });
+      res.status(200).json({ status: true, ...paginatedResults });
     } catch (error) {
       return next(error);
     }
