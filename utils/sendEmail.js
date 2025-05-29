@@ -1,9 +1,10 @@
+require("dotenv").config(); // Make sure this is at the top
+
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: process.env.EMAIL_PORT,
-  secure: false, // use true for 465, false for 587
+  service: "gmail",
+  secure: false, // or true if using port 465
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -13,7 +14,7 @@ const transporter = nodemailer.createTransport({
 async function sendEmail(to, subject, text) {
   try {
     await transporter.sendMail({
-      from: `"Skeaks" <${process.env.EMAIL_USER}>`,
+      from: process.env.EMAIL_USER,
       to,
       subject,
       text,

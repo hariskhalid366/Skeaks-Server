@@ -1,5 +1,5 @@
 const task = require("../modals/task");
-const { paginate } = require('../utils/pagination');
+const { paginate } = require("../utils/pagination");
 
 module.exports = {
   getUserTasks: async (req, res, next) => {
@@ -24,6 +24,8 @@ module.exports = {
   completeTask: async (req, res, next) => {
     try {
       const { taskId } = req.body;
+
+      console.log("Completing task with ID:", taskId);
 
       const updatedTask = await task.findByIdAndUpdate(
         taskId,

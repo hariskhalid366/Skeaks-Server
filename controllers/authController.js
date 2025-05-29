@@ -9,7 +9,7 @@ function generateToken(userId) {
 
 function generateOtp() {
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
-  const expiry = Date.now() + 10 * 60 * 1000; // 10 mins
+  const expiry = Date.now() + 10 * 60 * 1000;
   return { otp, otpExpiry: new Date(expiry) };
 }
 
@@ -108,7 +108,11 @@ module.exports = {
         user.otpExpiry = otpExpiry;
         await user.save();
 
-        await sendEmail(email, "OTP Verification", `Your OTP is: ${otp}`);
+        await sendEmail(
+          email,
+          "Skeaks OTP Verification",
+          `Your OTP is: ${otp}`
+        );
         return res.status(403).json({
           status: false,
           message:

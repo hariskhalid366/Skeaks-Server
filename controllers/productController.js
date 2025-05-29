@@ -1,5 +1,5 @@
 const Product = require("../modals/product");
-const { paginate } = require('../utils/pagination');
+const { paginate } = require("../utils/pagination");
 
 const getProductById = async (id) => {
   return Product.findById(id);
@@ -46,6 +46,8 @@ module.exports = {
   searchProductsByName: async (req, res, next) => {
     try {
       const { name } = req.query;
+      console.log(name);
+
       const page = parseInt(req.query.page, 10) || 1;
       const limit = parseInt(req.query.limit, 10) || 10;
 

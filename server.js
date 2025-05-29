@@ -33,9 +33,9 @@ app.use(errorHandler);
 app.use("/api", authRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
-app.use("/products", productRouter);
+app.use("/products", productRouter); //getAllProducts
 app.use("/payment", paymentRouter);
-app.use("/tasks", taskRouter);
+app.use("/tasks", taskRouter); //✅
 app.use("/api/bid", bidRouter);
 
 mongoose

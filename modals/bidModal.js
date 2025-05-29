@@ -4,6 +4,7 @@ const bidProductSchema = new mongoose.Schema({
   name: String,
   description: String,
   image: String,
+  minted: { type: Boolean, default: false },
   startingPrice: Number,
   currentBid: {
     amount: { type: Number, default: 0 },

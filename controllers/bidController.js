@@ -1,27 +1,27 @@
 const BidProduct = require("../modals/bidModal");
-const { paginate } = require('../utils/pagination');
+const { paginate } = require("../utils/pagination");
 
 exports.postProductForBid = async (req, res, next) => {
   try {
     const {
       name,
       description,
-    image,
-    startingPrice,
-    bidEndTime,
-    userId,
-    username,
-    avatar,
-  } = req.body;
+      image,
+      startingPrice,
+      bidEndTime,
+      userId,
+      username,
+      avatar,
+    } = req.body;
 
-  const product = new BidProduct({
-    name,
-    description,
-    image,
-    startingPrice,
-    bidEndTime,
-    creator: { userId, username, avatar },
-  });
+    const product = new BidProduct({
+      name,
+      description,
+      image,
+      startingPrice,
+      bidEndTime,
+      creator: { userId, username, avatar },
+    });
 
     await product.save();
     res.status(201).json({ success: true, product });
@@ -39,7 +39,9 @@ exports.getActiveBidProducts = async (req, res, next) => {
     const paginatedResults = await paginate(query, page, limit);
 
     if (!paginatedResults.data || paginatedResults.data.length === 0) {
-      return res.status(404).json({ status: false, message: "No active bid products found" });
+      return res
+        .status(404)
+        .json({ status: false, message: "No active bid products found" });
     }
     res.status(200).json({ status: true, ...paginatedResults });
   } catch (error) {
@@ -56,7 +58,10 @@ exports.getUserBidProducts = async (req, res, next) => {
     const paginatedResults = await paginate(query, page, limit);
 
     if (!paginatedResults.data || paginatedResults.data.length === 0) {
-      return res.status(404).json({ status: false, message: "No bid products found for this user" });
+      return res.status(404).json({
+        status: false,
+        message: "No bid products found for this user",
+      });
     }
     res.status(200).json({ status: true, ...paginatedResults });
   } catch (error) {
@@ -73,7 +78,10 @@ exports.getUserParticipatedBids = async (req, res, next) => {
     const paginatedResults = await paginate(query, page, limit);
 
     if (!paginatedResults.data || paginatedResults.data.length === 0) {
-      return res.status(404).json({ status: false, message: "No bids participated in by this user" });
+      return res.status(404).json({
+        status: false,
+        message: "No bids participated in by this user",
+      });
     }
     res.status(200).json({ status: true, ...paginatedResults });
   } catch (error) {
