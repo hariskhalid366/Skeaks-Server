@@ -1,6 +1,10 @@
 const BidProduct = require("../modals/bidModal");
 const { paginate } = require("../utils/pagination");
 
+const getProductById = async (id) => {
+  return BidProduct.findById(id);
+};
+
 exports.postProductForBid = async (req, res, next) => {
   try {
     const {
@@ -86,5 +90,23 @@ exports.getUserParticipatedBids = async (req, res, next) => {
     res.status(200).json({ status: true, ...paginatedResults });
   } catch (error) {
     next(error);
+  }
+};
+
+exports.getBidProductById = async (req, res, next) => {
+  try {
+    const productId = req.params.productId;
+    const product = await getProductById(productId);
+
+    if (!product) {
+      return res
+        .status(404)
+        .json({ status: false, message: "Product not found" });
+    }
+
+    res.status(200).json({ status: true, product });
+  } catch (error) {
+    console.error(error);
+    return next(error);
   }
 };
