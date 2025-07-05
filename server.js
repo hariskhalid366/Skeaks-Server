@@ -11,6 +11,7 @@ const productRouter = require("./routes/product");
 const paymentRouter = require("./routes/paymentIntent");
 const taskRouter = require("./routes/tasks");
 const bidRouter = require("./routes/bid");
+const walletRouter = require("./routes/wallet"); // Import wallet routes
 
 const errorHandler = require("./middleware/errorHandler");
 
@@ -33,9 +34,10 @@ app.use(errorHandler);
 app.use("/api", authRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
-app.use("/products", productRouter); //getAllProducts
-app.use("/payment", paymentRouter);
-app.use("/tasks", taskRouter); //✅
+app.use("/api/products", productRouter); // Changed base path for consistency
+app.use("/api/wallet", walletRouter); // Add wallet routes
+app.use("/payment", paymentRouter); // This seems like it should also be /api/payment
+app.use("/tasks", taskRouter); // This seems like it should also be /api/tasks
 app.use("/api/bid", bidRouter);
 
 mongoose
