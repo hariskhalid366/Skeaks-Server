@@ -65,7 +65,7 @@ io.on("connection", (socket) => {
       } catch (err) {
         console.error("Socket error in new-bid:", err);
       }
-    }
+    },
   );
 
   socket.on("disconnect", () => {
