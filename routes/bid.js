@@ -6,5 +6,6 @@ router.get("/active", bidController.getActiveBidProducts);
 router.get("/mine/:userId", bidController.getUserBidProducts);
 router.get("/participated/:userId", bidController.getUserParticipatedBids);
 router.get("/:productId", bidController.getBidProductById);
+router.post("/place-bid", bidController.placeBid);
 
 module.exports = router;
